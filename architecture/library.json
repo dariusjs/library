@@ -1,0 +1,827 @@
+{
+  "ModelName": "library",
+  "ModelMetadata": {
+    "Author": "Darius Seroka",
+    "DateCreated": "Jun 23, 2023, 09:24 AM",
+    "DateLastModified": "Jun 23, 2023, 04:59 PM",
+    "Description": "Library Data Model",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "library",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK1",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK1",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "ID",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "AUTHOR",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "CITATION",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "TOPIC",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "PUBLICATION",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "JOURNAL",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1PK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1SK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2PK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2SK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI3PK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI3SK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI4PK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI4SK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI5PK1",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI5SK1",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "GSI1",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI1PK1",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI1SK1",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI2",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI2PK1",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI2SK1",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI3",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI3PK1",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI3SK1",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "INCLUDE",
+            "NonKeyAttributes": [
+              "AUTHOR"
+            ]
+          }
+        },
+        {
+          "IndexName": "GSI4",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI4PK1",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI4SK1",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "INCLUDE",
+            "NonKeyAttributes": [
+              "PUBLICATION",
+              "JOURNAL"
+            ]
+          }
+        },
+        {
+          "IndexName": "GSI5",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI5PK1",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI5SK1",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "ID": {
+            "S": "ed2062ff-1f25-4f15-876e-bb2e2fd1a073"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "PUBLICATION#PICKWICK_PAPERS"
+          },
+          "ID": {
+            "S": "e05af4f2-bf2e-4169-af55-85a6e298c373"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "PICKWICK_PAPERS"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#PICKWICK_PAPERS"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "PUBLICATION#GREAT_EXPECTATIONS"
+          },
+          "ID": {
+            "S": "1077f38d-3a6c-4186-b828-06bb8bc886e6"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "GREAT_EXPECTATIONS"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#GREAT_EXPECTATIONS"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "PUBLICATION#OLIVER_TWIST"
+          },
+          "ID": {
+            "S": "d993a263-3543-487d-afb5-230210bd07d2"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "OLIVER_TWIST"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#OLIVER_TWIST"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "PUBLICATION#NICHOLAS_NICKELBY"
+          },
+          "ID": {
+            "S": "bbe65484-3278-4d15-bcf6-4a8369e1b517"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "NICHOLAS_NICKELBY"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#NICHOLAS_NICKELBY"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "SK1": {
+            "S": "PUBLICATION#OLIVER_TWIST"
+          },
+          "ID": {
+            "S": "d993a263-3543-487d-afb5-230210bd07d2"
+          },
+          "AUTHOR": {
+            "S": "JOHN_CITIZEN"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "OLIVER_TWIST"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#OLIVER_TWIST"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "SK1": {
+            "S": "PUBLICATION#NICHOLAS_NICKELBY"
+          },
+          "ID": {
+            "S": "bbe65484-3278-4d15-bcf6-4a8369e1b517"
+          },
+          "AUTHOR": {
+            "S": "JOHN_CITIZEN"
+          },
+          "TOPIC": {
+            "S": "FICTION"
+          },
+          "PUBLICATION": {
+            "S": "NICHOLAS_NICKELBY"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#NICHOLAS_NICKELBY"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#FICTION"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "SK1": {
+            "S": "JOURNAL#STOCK_MARKET_101"
+          },
+          "ID": {
+            "S": "21962f21-fac2-41fd-bda0-115594e171d9"
+          },
+          "AUTHOR": {
+            "S": "JOHN_CITIZEN"
+          },
+          "TOPIC": {
+            "S": "SELF_HELP"
+          },
+          "JOURNAL": {
+            "S": "STOCK_MARKET_101"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SELF_HELP"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI2PK1": {
+            "S": "JOURNAL#STOCK_MARKET_101"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#JOURNAL"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SELF_HELP"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "SK1": {
+            "S": "JOURNAL#STOCK_MARKET_102"
+          },
+          "ID": {
+            "S": "06efb81f-55db-40b8-a4da-93ea2548f154"
+          },
+          "AUTHOR": {
+            "S": "JOHN_CITIZEN"
+          },
+          "TOPIC": {
+            "S": "SELF_HELP"
+          },
+          "JOURNAL": {
+            "S": "STOCK_MARKET_102"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SELF_HELP"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI2PK1": {
+            "S": "JOURNAL#STOCK_MARKET_102"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#JOURNAL"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SELF_HELP"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_101"
+          },
+          "ID": {
+            "S": "10f32a44-13a8-432c-8bac-1b972247f585"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "SELF_HELP"
+          },
+          "JOURNAL": {
+            "S": "VICTORIAN_ETIQUETTE_101"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SELF_HELP"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_101"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#JOURNAL"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SELF_HELP"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "SK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_102"
+          },
+          "ID": {
+            "S": "90b7d4a0-38fa-4b69-ae70-6bc1ab556d89"
+          },
+          "AUTHOR": {
+            "S": "CHARLES_DICKENS"
+          },
+          "TOPIC": {
+            "S": "SELF_HELP"
+          },
+          "JOURNAL": {
+            "S": "VICTORIAN_ETIQUETTE_102"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SELF_HELP"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI2PK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_102"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#JOURNAL"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SELF_HELP"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "SK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_102"
+          },
+          "ID": {
+            "S": "90b7d4a0-38fa-4b69-ae70-6bc1ab556d89"
+          },
+          "AUTHOR": {
+            "S": "JOHN_CITIZEN"
+          },
+          "TOPIC": {
+            "S": "SELF_HELP"
+          },
+          "JOURNAL": {
+            "S": "VICTORIAN_ETIQUETTE_102"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SELF_HELP"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI2PK1": {
+            "S": "JOURNAL#VICTORIAN_ETIQUETTE_102"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JOHN_CITIZEN"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#JOURNAL"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SELF_HELP"
+          }
+        },
+        {
+          "PK1": {
+            "S": "AUTHOR#JIM"
+          },
+          "SK1": {
+            "S": "PUBLICATION#SPACE_VOYAGE"
+          },
+          "ID": {
+            "S": "52cd3d15-5204-4caa-8ee4-0edc3c6aff9c"
+          },
+          "AUTHOR": {
+            "S": "JIM"
+          },
+          "TOPIC": {
+            "S": "SCIENCE_FICTION"
+          },
+          "PUBLICATION": {
+            "S": "SPACE_VOYAGE"
+          },
+          "GSI1PK1": {
+            "S": "TOPIC#SCIENCE_FICTION"
+          },
+          "GSI1SK1": {
+            "S": "AUTHOR#JIM"
+          },
+          "GSI2PK1": {
+            "S": "PUBLICATION#SPACE_VOYAGE"
+          },
+          "GSI2SK1": {
+            "S": "AUTHOR#JIM"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#JIM"
+          },
+          "GSI4PK1": {
+            "S": "TYPE#PUB"
+          },
+          "GSI4SK1": {
+            "S": "TYPE#PUBLICATION"
+          },
+          "GSI5PK1": {
+            "S": "TYPE#TOPIC"
+          },
+          "GSI5SK1": {
+            "S": "TOPIC#SCIENCE_FICTION"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
