@@ -1,8 +1,8 @@
 import { DynamoDBClient, CreateTableCommand, PutItemCommand, UpdateTableCommand } from '@aws-sdk/client-dynamodb';
-import windfarm from '../windfarm.json';
+import library from '../library.json';
 
 const REGION = 'REGION';
-const dynamoTableName = windfarm.DataModel[0].TableName;
+const dynamoTableName = library.DataModel[0].TableName;
 const tableParams = {
   KeySchema: [
     { AttributeName: 'pk', KeyType: 'HASH' },
@@ -19,7 +19,7 @@ const tableParams = {
   GlobalSecondaryIndexUpdates: [
     {
       Create: {
-        IndexName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].IndexName,
+        IndexName: library.DataModel[0].GlobalSecondaryIndexes[0].IndexName,
         KeySchema: [
           { AttributeName: 'gsi1pk1', KeyType: 'HASH' },
           { AttributeName: 'gsi1sk1', KeyType: 'RANGE' }
@@ -43,25 +43,25 @@ const gsiParams = {
   TableName: dynamoTableName,
   AttributeDefinitions: [
     {
-      AttributeName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.PartitionKey.AttributeName,
+      AttributeName: library.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.PartitionKey.AttributeName,
       AttributeType: 'S'
     },
     {
-      AttributeName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.SortKey.AttributeName,
+      AttributeName: library.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.SortKey.AttributeName,
       AttributeType: 'S'
     }
   ],
   GlobalSecondaryIndexUpdates: [
     {
       Create: {
-        IndexName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].IndexName,
+        IndexName: library.DataModel[0].GlobalSecondaryIndexes[0].IndexName,
         KeySchema: [
           {
-            AttributeName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.PartitionKey.AttributeName,
+            AttributeName: library.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.PartitionKey.AttributeName,
             KeyType: 'HASH'
           },
           {
-            AttributeName: windfarm.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.SortKey.AttributeName,
+            AttributeName: library.DataModel[0].GlobalSecondaryIndexes[0].KeyAttributes.SortKey.AttributeName,
             KeyType: 'RANGE'
           }
         ],
@@ -124,7 +124,7 @@ const run = async () => {
     await dbclient.send(new CreateTableCommand(tableParams));
     console.log('Table created.');
 
-    const workBenchData: any = windfarm.DataModel[0].TableData;
+    const workBenchData: any = library.DataModel[0].TableData;
     for (const element of workBenchData) {
       await dbclient.send(
         new PutItemCommand({

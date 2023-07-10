@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "Darius Seroka",
     "DateCreated": "Jun 23, 2023, 09:24 AM",
-    "DateLastModified": "Jun 23, 2023, 04:59 PM",
+    "DateLastModified": "Jul 10, 2023, 01:23 PM",
     "Description": "Library Data Model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -189,6 +189,12 @@
           },
           "AUTHOR": {
             "S": "CHARLES_DICKENS"
+          },
+          "GSI3PK1": {
+            "S": "TYPE#AUTHOR"
+          },
+          "GSI3SK1": {
+            "S": "AUTHOR#CHARLES_DICKENS"
           }
         },
         {
@@ -220,12 +226,6 @@
             "S": "PUBLICATION#PICKWICK_PAPERS"
           },
           "GSI2SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
           "GSI4PK1": {
@@ -272,12 +272,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -320,12 +314,6 @@
             "S": "PUBLICATION#OLIVER_TWIST"
           },
           "GSI2SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
           "GSI4PK1": {
@@ -372,12 +360,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -422,12 +404,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#JOHN_CITIZEN"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#JOHN_CITIZEN"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -470,12 +446,6 @@
             "S": "PUBLICATION#NICHOLAS_NICKELBY"
           },
           "GSI2SK1": {
-            "S": "AUTHOR#JOHN_CITIZEN"
-          },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
             "S": "AUTHOR#JOHN_CITIZEN"
           },
           "GSI4PK1": {
@@ -522,12 +492,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#JOHN_CITIZEN"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#JOHN_CITIZEN"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -570,12 +534,6 @@
             "S": "JOURNAL#STOCK_MARKET_102"
           },
           "GSI2SK1": {
-            "S": "AUTHOR#JOHN_CITIZEN"
-          },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
             "S": "AUTHOR#JOHN_CITIZEN"
           },
           "GSI4PK1": {
@@ -622,12 +580,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -670,12 +622,6 @@
             "S": "JOURNAL#VICTORIAN_ETIQUETTE_102"
           },
           "GSI2SK1": {
-            "S": "AUTHOR#CHARLES_DICKENS"
-          },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
             "S": "AUTHOR#CHARLES_DICKENS"
           },
           "GSI4PK1": {
@@ -722,12 +668,6 @@
           "GSI2SK1": {
             "S": "AUTHOR#JOHN_CITIZEN"
           },
-          "GSI3PK1": {
-            "S": "TYPE#AUTHOR"
-          },
-          "GSI3SK1": {
-            "S": "AUTHOR#JOHN_CITIZEN"
-          },
           "GSI4PK1": {
             "S": "TYPE#PUB"
           },
@@ -743,52 +683,22 @@
         },
         {
           "PK1": {
-            "S": "AUTHOR#JIM"
+            "S": "AUTHOR#JOHN_CITIZEN"
           },
           "SK1": {
-            "S": "PUBLICATION#SPACE_VOYAGE"
+            "S": "AUTHOR#JOHN_CITIZEN"
           },
           "ID": {
-            "S": "52cd3d15-5204-4caa-8ee4-0edc3c6aff9c"
+            "S": "14124124-38fa-1231241-ae70-12313"
           },
           "AUTHOR": {
-            "S": "JIM"
-          },
-          "TOPIC": {
-            "S": "SCIENCE_FICTION"
-          },
-          "PUBLICATION": {
-            "S": "SPACE_VOYAGE"
-          },
-          "GSI1PK1": {
-            "S": "TOPIC#SCIENCE_FICTION"
-          },
-          "GSI1SK1": {
-            "S": "AUTHOR#JIM"
-          },
-          "GSI2PK1": {
-            "S": "PUBLICATION#SPACE_VOYAGE"
-          },
-          "GSI2SK1": {
-            "S": "AUTHOR#JIM"
+            "S": "JOHN_CITIZEN"
           },
           "GSI3PK1": {
             "S": "TYPE#AUTHOR"
           },
           "GSI3SK1": {
-            "S": "AUTHOR#JIM"
-          },
-          "GSI4PK1": {
-            "S": "TYPE#PUB"
-          },
-          "GSI4SK1": {
-            "S": "TYPE#PUBLICATION"
-          },
-          "GSI5PK1": {
-            "S": "TYPE#TOPIC"
-          },
-          "GSI5SK1": {
-            "S": "TOPIC#SCIENCE_FICTION"
+            "S": "AUTHOR#JOHN_CITIZEN"
           }
         }
       ],
